@@ -8,7 +8,7 @@
         /* Algemene Stijlen */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* Donkerblauwe/zwarte achtergrond */
+            background-color: #0f172a;
             color: white;
             display: flex;
             flex-direction: column;
@@ -17,94 +17,156 @@
             min-height: 100vh;
             margin: 0;
             text-align: center;
+            /* Verberg de standaard cursor */
+            cursor: none;
+        }
+
+        /* De Aangepaste Cursor */
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: rgba(56, 189, 248, 0.5);
+            border: 2px solid #38bdf8;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none; /* Zorg dat je door de cursor heen kunt klikken */
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, background 0.3s, width 0.3s, height 0.3s;
+            z-index: 9999;
+            box-shadow: 0 0 15px #38bdf8;
+        }
+
+        /* Cursor effect wanneer je klikt of over een knop gaat */
+        .cursor-hover {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(251, 191, 36, 0.3) !important;
+            border-color: #fbbf24 !important;
+            box-shadow: 0 0 25px #fbbf24 !important;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #38bdf8; /* Lichtblauwe accentkleur */
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: #38bdf8;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            pointer-events: none;
         }
 
-        /* Container voor de knoppen */
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            max-width: 400px;
+            gap: 15px;
+            width: 90%;
+            max-width: 450px;
         }
 
-        /* Knop Stijl */
         .btn {
             display: block;
-            padding: 15px 25px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: 800;
             text-decoration: none;
             color: white;
             background: #1e293b;
             border: 2px solid #38bdf8;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            transition: 0.3s;
+            cursor: none; /* Zorg dat ook hier de standaard cursor weg blijft */
         }
 
-        /* Hover effecten per knop */
         .btn:hover {
             background: #38bdf8;
             color: #0f172a;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(56, 189, 248, 0.4);
+            transform: scale(1.05);
         }
 
-        /* Specifieke kleur voor de game knop */
-        .btn-game {
-            border-color: #fbbf24; /* Goud voor de game */
-        }
-        .btn-game:hover {
-            background: #fbbf24;
+        .btn-game { border-color: #fbbf24; }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #1e293b;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-top: 3px solid #38bdf8;
+            z-index: 1000;
         }
 
-        /* Footer Stijl */
+        .cookie-btn {
+            background: #38bdf8;
+            border: none;
+            color: #0f172a;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: none;
+        }
+
         footer {
-            margin-top: 60px;
-            font-size: 0.9rem;
+            margin-top: 50px;
+            padding-bottom: 100px;
             color: #94a3b8;
-        }
-
-        /* Animatie voor de titel */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .header-content {
-            animation: fadeIn 1s ease-out;
         }
     </style>
 </head>
 <body>
 
-    <div class="header-content">
-        <h1>DPZXTEK CLIENT</h1>
-    </div>
+    <div id="custom-cursor"></div>
+
+    <h1>DPZXTEK CLIENT</h1>
 
     <div class="button-container">
         <a href="https://fruityslicer.oneapp.dev" target="_blank" class="btn btn-game">🎮 MIJN GAME</a>
-
         <a href="https://www.youtube.com/@DevonplayzknutselsenzoYT" target="_blank" class="btn">🎨 TEKEN KANAAL YT</a>
-
         <a href="https://www.youtube.com/@dpzxteksoft2026" target="_blank" class="btn">💻 SOFTWAREFIX YT</a>
-
         <a href="https://dpzx-androidstore.vercel.app/" target="_blank" class="btn">📱 ANDROID APP STORE</a>
     </div>
 
     <footer>
         <p>©dpzxtek 2026/2027!</p>
     </footer>
+
+    <div id="cookie-banner">
+        <p>Deze site maakt gebruik van <strong>vrije cookies</strong> 🍪</p>
+        <button class="cookie-btn" onclick="acceptCookies()">Accepteren</button>
+    </div>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+
+        // Zorg dat de cirkel de muis volgt
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Vergroot de cursor als je over knoppen gaat
+        const buttons = document.querySelectorAll('.btn, .cookie-btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+            });
+            button.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+            });
+        });
+
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
