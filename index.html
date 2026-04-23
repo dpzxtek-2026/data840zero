@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPZXTEK CLIENT</title>
+    <style>
+        /* Algemene Stijlen */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a; /* Donkerblauwe/zwarte achtergrond */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #38bdf8; /* Lichtblauwe accentkleur */
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Container voor de knoppen */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Knop Stijl */
+        .btn {
+            display: block;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: #1e293b;
+            border: 2px solid #38bdf8;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hover effecten per knop */
+        .btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Specifieke kleur voor de game knop */
+        .btn-game {
+            border-color: #fbbf24; /* Goud voor de game */
+        }
+        .btn-game:hover {
+            background: #fbbf24;
+        }
+
+        /* Footer Stijl */
+        footer {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* Animatie voor de titel */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-content {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-content">
+        <h1>DPZXTEK CLIENT</h1>
+    </div>
+
+    <div class="button-container">
+        <a href="https://fruityslicer.oneapp.dev" target="_blank" class="btn btn-game">🎮 MIJN GAME</a>
+
+        <a href="https://www.youtube.com/@DevonplayzknutselsenzoYT" target="_blank" class="btn">🎨 TEKEN KANAAL YT</a>
+
+        <a href="https://www.youtube.com/@dpzxteksoft2026" target="_blank" class="btn">💻 SOFTWAREFIX YT</a>
+
+        <a href="https://dpzx-androidstore.vercel.app/" target="_blank" class="btn">📱 ANDROID APP STORE</a>
+    </div>
+
+    <footer>
+        <p>©dpzxtek 2026/2027!</p>
+    </footer>
+
+</body>
+</html>
